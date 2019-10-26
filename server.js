@@ -1,10 +1,46 @@
-//SOMETHING WILL HAPPEN HERE
-
+const db = require("./config").db;
+const knex = require("knex")(db);
 const express = require("express");
 const setupExpressServer = () => {
   const app = express();
 
-  //PUT METHODS HERE
+  app.get("/api/queens", async (req, res) => {
+    // const response = knex
+    //   .select()
+    //   .table("queens")
+    //   .then();
+    // res.send(response);
+    const func = () => {
+      return knex.select().table("queens");
+    };
+    console.log("GET ALL QUEENS");
+    const response = await func();
+    res.send(response);
+  });
+
+  app.get("/api/queens/:name", async (req, res) => {
+    const { name } = req.params;
+    const func = () => {
+      return knex
+        .select()
+        .table("queens")
+        .where("name", name);
+    };
+    console.log("GET QUEENS BY NAME");
+    const response = await func();
+    res.send(response);
+  });
+
+  app.get("/api/winners", async (req, res) => {
+    const func = () => {
+      return knex
+        .select()
+        .table("queens")
+        .where("ranking", 1);
+    };
+    const response = await func();
+    res.send(response);
+  });
 
   //   app.get("/teapot", (req, res) => {
   //     res.status(418).end();
