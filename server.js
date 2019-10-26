@@ -1,6 +1,17 @@
 const db = require("./config").db;
 const knex = require("knex")(db);
 const express = require("express");
+
+// function createResponse(...args) {
+//   if (args) {
+//     return knex
+//       .select()
+//       .table("queens")
+//       .where(...args);
+//   }
+//   return knex.select().table("queens");
+// }
+
 const setupExpressServer = () => {
   const app = express();
 
@@ -13,7 +24,6 @@ const setupExpressServer = () => {
     const func = () => {
       return knex.select().table("queens");
     };
-    console.log("GET ALL QUEENS");
     const response = await func();
     res.send(response);
   });
@@ -26,7 +36,46 @@ const setupExpressServer = () => {
         .table("queens")
         .where("name", name);
     };
-    console.log("GET QUEENS BY NAME");
+    const response = await func();
+    res.send(response);
+  });
+
+  app.get("/api/queens/seasons/:season", async (req, res) => {
+    const { season } = req.params;
+    const func = () => {
+      return knex
+        .select()
+        .table("queens")
+        .where("season", season);
+    };
+    const response = await func();
+    res.send(response);
+  });
+
+  app.get("/api/queens/seasons/:season/top/:ranking", async (req, res) => {
+    const { season } = req.params;
+    let { ranking } = req.params;
+    ranking++;
+    const func = () => {
+      return knex
+        .select()
+        .table("queens")
+        .where("season", season)
+        .andWhere("ranking", "<", ranking);
+    };
+    const response = await func();
+    res.send(response);
+  });
+
+  app.get("/api/queens/wins/:wins", async (req, res) => {
+    let { wins } = req.params;
+    wins--;
+    const func = () => {
+      return knex
+        .select()
+        .table("queens")
+        .where("wins", ">", wins);
+    };
     const response = await func();
     res.send(response);
   });
@@ -42,38 +91,77 @@ const setupExpressServer = () => {
     res.send(response);
   });
 
-  //   app.get("/teapot", (req, res) => {
-  //     res.status(418).end();
-  //     //res.sendStatus(418);
-  //   });
+  app.get("/api/congeniality", async (req, res) => {
+    const func = () => {
+      return knex
+        .select()
+        .table("queens")
+        .where("congeniality", true);
+    };
+    const response = await func();
+    res.send(response);
+  });
 
-  //   app.get("/hello", (req, res) => {
-  //     res.send("world");
-  //   });
+  app.get("/api/congeniality/:season", async (req, res) => {
+    const { season } = req.params;
+    const func = () => {
+      return knex
+        .select()
+        .table("queens")
+        .where("congeniality", true)
+        .where("season", season);
+    };
+    const response = await func();
+    res.send(response);
+  });
 
-  //   app.get("/hellojson", (req, res) => {
-  //     res.json({ hello: "world" });
-  //     //res.send would also return a json;
-  //     //it looks at what you're sending and tried to
-  //     //send the appropriate type
-  //   });
+  app.get("/api/snatch_game", async (req, res) => {
+    const func = () => {
+      return knex
+        .select()
+        .table("queens")
+        .where("snatch_game", true);
+    };
+    const response = await func();
+    res.send(response);
+  });
 
-  //   app.get("/greet", (req, res) => {
-  //     // const name = req.query.name
-  //     // line 24 is same as line 22
-  //     const { name } = req.query;
-  //     res.send(`Hello ${name}!`);
-  //   });
+  app.get("/api/snatch_game/:season", async (req, res, next) => {
+    const { season } = req.params;
+    const func = () => {
+      return knex
+        .select()
+        .table("queens")
+        .where("snatch_game", true)
+        .where("season", season);
+    };
+    const response = await func();
+    res.send(response);
+  });
 
-  //   app.get("/:first/plus/:second", (req, res) => {
-  //     const { first, second } = req.params;
-  //     res.send({ result: ~~first + ~~second });
-  //   });
+  app.get("/api/first_win", async (req, res) => {
+    const func = () => {
+      return knex
+        .select()
+        .table("queens")
+        .where("first_win", true);
+    };
+    const response = await func();
+    res.send(response);
+  });
 
-  //   app.use(express.json()); //method that returns MW that parses jsons from HTTP reqs
-  //   app.post("/echo", (req, res) => {
-  //     res.send(req.body);
-  //   });
+  app.get("/api/first_win/:season", async (req, res) => {
+    const { season } = req.params;
+    const func = () => {
+      return knex
+        .select()
+        .table("queens")
+        .where("first_win", true)
+        .where("season", season);
+    };
+    const response = await func();
+    res.send(response);
+  });
 
   return app;
 };
