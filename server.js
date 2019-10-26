@@ -15,6 +15,12 @@ const express = require("express");
 const setupExpressServer = () => {
   const app = express();
 
+  app.use(express.static("public"));
+
+  app.get("/", (req, res) => {
+    res.sendFile("index.html");
+  });
+
   app.get("/api/queens", async (req, res) => {
     // const response = knex
     //   .select()
@@ -61,7 +67,8 @@ const setupExpressServer = () => {
         .select()
         .table("queens")
         .where("season", season)
-        .andWhere("ranking", "<", ranking);
+        .andWhere("ranking", "<", ranking)
+        .orderBy("ranking");
     };
     const response = await func();
     res.send(response);
@@ -96,7 +103,8 @@ const setupExpressServer = () => {
       return knex
         .select()
         .table("queens")
-        .where("congeniality", true);
+        .where("congeniality", true)
+        .orderBy("season");
     };
     const response = await func();
     res.send(response);
