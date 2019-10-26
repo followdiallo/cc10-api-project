@@ -1,4 +1,27 @@
-const data = require("../queenData");
+const data = require("../queenData.js");
+console.log({ data });
+const insertData = data.map(queen => {
+  const [
+    name,
+    season,
+    ranking,
+    congeniality,
+    snatchGame,
+    firstWin,
+    entrance,
+    wins
+  ] = queen;
+  return {
+    name: name,
+    season: season,
+    ranking: ranking,
+    congeniality: congeniality,
+    snatch_game: snatchGame,
+    first_win: firstWin,
+    entrance: entrance,
+    wins: wins
+  };
+});
 //name, season, ranking, congeniality, snatch_game, first_win, entrance, wins
 
 exports.up = function(knex) {
@@ -15,28 +38,7 @@ exports.up = function(knex) {
       t.integer("wins");
     })
     .then(() => {
-      data.forEach(queen => {
-        const [
-          name,
-          season,
-          ranking,
-          congeniality,
-          snatchGame,
-          firstWin,
-          entrance,
-          wins
-        ] = queen;
-        return knex("queens").insert({
-          name: name,
-          season: season,
-          ranking: ranking,
-          congeniality: congeniality,
-          snatch_game: snatchGame,
-          first_win: firstWin,
-          entrance: entrance,
-          wins: wins
-        });
-      });
+      return knex("queens").insert(insertData);
     });
 };
 

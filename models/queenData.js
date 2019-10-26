@@ -1,4 +1,4 @@
-[
+const data = [
   ["Shannel", 1, 4, false, false, false, 1, 0],
   ["Nina Flowers", 1, 2, true, false, true, 2, 1],
   ["Rebecca Glasscock", 1, 3, false, false, false, 3, 1],
@@ -144,3 +144,5 @@
   ["Kahanna Montrese", 11, 14, false, false, false, 14, 0],
   ["Soju", 11, 15, false, false, false, 15, 0]
 ];
+
+module.exports = data;
