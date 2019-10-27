@@ -52,7 +52,8 @@ const setupExpressServer = () => {
       return knex
         .select()
         .table("queens")
-        .where("season", season);
+        .where("season", season)
+        .orderBy("ranking", "desc");
     };
     const response = await func();
     res.send(response);
@@ -93,6 +94,19 @@ const setupExpressServer = () => {
         .select()
         .table("queens")
         .where("ranking", 1);
+    };
+    const response = await func();
+    res.send(response);
+  });
+
+  app.get("/api/winners/:season", async (req, res) => {
+    const { season } = req.params;
+    const func = () => {
+      return knex
+        .select()
+        .table("queens")
+        .where("ranking", 1)
+        .where("season", season);
     };
     const response = await func();
     res.send(response);

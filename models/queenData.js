@@ -94,7 +94,7 @@ const data = [
   ["Naysha Lopez", 8, 9, false, false, false, 4, 0],
   ["Acid Betty", 8, 8, false, false, false, 5, 0],
   ["Robbie Turner", 8, 7, false, false, false, 6, 1],
-  ["Kim Chi", 8, 2, false, false, false, 7, 2],
+  ["Kim Chi", 8, 2, false, false, true, 7, 2],
   ["Thorgy Thor", 8, 6, false, false, false, 8, 0],
   ["Bob the Drag Queen", 8, 1, false, true, false, 9, 3],
   ["Laila McQueen", 8, 11, false, false, false, 10, 0],
