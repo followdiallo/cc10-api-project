@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="main.css" />
+    <title>👑RPDR SlayPI 👑</title>
     <!-- <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -12,9 +13,122 @@
   </head>
 
   <body>
-    <h1>
+      <a name="top"></a>
+    <div id="header">
+        <div class="headline">
+            <div>RPDR SlayPI</div>
+        </div>
+        <div class="buttons">
+            <div><a href="#top">Top</a></div>
+            <div><a href="https://github.com/followdiallo/rpdr-slaypi">GitHub</a></div>
+            <div><a href="https://github.com/followdiallo">@followdiallo</a></div>
+        </div>
+    </div>
+    <br>
+    <!-- <h1>RPDR SlayPI</h1> -->
+    <div class="introduction">
+        <h2>✨INTRODUCTION ✨</h2>
+        <br>
+        <p>This is a RESTful API with data for all 140 queens who have competed on RuPaul's Drag Race. 
+            Created by <a href="https://github.com/followdiallo">@followdiallo</a>.</p>
+    </div>
+    <br>
+    <div class="endpoints">
+    <h2>✨ENDPOINTS ✨</h2>
+    <br>
+    <div class="get">
+      <h3>GET</h3>
+      <p>
+        <pre>/api/queens</pre> Returns all queens.
+        <a href="http://localhost:3000/api/queens" title="/api/queens">(Example)</a>
+      </p>
+      <p>
+            <pre>/api/queens/:name</pre> Returns queen by name. Note that names are
+        case-sensitive, and you must search by the queen's full name.
+        <a href="http://localhost:3000/api/queens/Victoria%20Porkchop%20Parker"
+           title="/api/queens/Victoria%20Porkchop%20Parker">(Example)</a
+        >
+      </p>
+      <p>
+        <pre>/api/queens/seasons/:season</pre> Returns all queens for the specified
+        season.
+        <a href="http://localhost:3000/api/queens/seasons/9" title="/api/queens/seasons/9">(Example)</a>
+      </p>
+      <p>
+            <pre>/api/queens/seasons/:season/top/:ranking</pre> Returns all queens who placed
+        <pre>:ranking</pre> or higher in the specified season; <pre>top/3/</pre> returns the top
+        three, etc.
+        <a href="http://localhost:3000/api/queens/seasons/11/top/5"
+           title="/api/queens/seasons/11/top/5">(Example)</a
+        >
+      </p>
+      <p>
+        <pre>/api/queens/wins/:win</pre> Returns all queens who won at least <pre>:win</pre> maxi
+        challenges.
+        <a href="http://localhost:3000/api/queens/wins/3" title="/api/queens/wins/3">(Example)</a>
+      </p>
+      <p>
+        <pre>/api/winners</pre> Returns all winners 👑 of RuPaul's Drag Race.
+        <a href="http://localhost:3000/api/winners" title="/api/winners">(Example)</a>
+      </p>
+      <p>
+        <pre>/api/winners/:season</pre> Returns the winner 👑 for the specified season.
+        <a href="http://localhost:3000/api/winners/7" title="/api/winners/7">(Example)</a>
+      </p>
+      <p>
+        <pre>/api/congeniality</pre> Returns all Miss Congenialities.
+        <a href="http://localhost:3000/api/congeniality" title="/api/congeniality">(Example)</a>
+      </p>
+      <p>
+        <pre>/api/congeniality/:season</pre> Returns the Miss Congeniality for the
+        specified season.
+        <a href="http://localhost:3000/api/congeniality/4" title="/api/congeniality/4">(Example)</a>
+      </p>
+      <p>
+        <pre>/api/snatch_game</pre> Returns all Snatch Game winners.
+        <a href="http://localhost:3000/api/snatch_game" title="/api/snatch_game">(Example)</a>
+      </p>
+      <p>
+        <pre>/api/snatch_game/:season</pre> Returns the Snatch Game winner(s) for the
+        specified season.
+        <a href="http://localhost:3000/api/snatch_game/7" title="/api/snatch_game/7">(Example)</a>
+      </p>
+      <p>
+        <pre>/api/first_win</pre> Returns all queens who won the first challenge of their
+        season. <a href="http://localhost:3000/api/first_win" title="/api/first_win">(Example)</a>
+      </p>
+      <p>
+        <pre>/api/first_win/:season</pre> Returns the queen(s) who won the first challenge
+        of her season.
+        <a href="http://localhost:3000/api/first_win/6" title="/api/first_win/6">(Example)</a>
+      </p>
+    </div>
+    <div class="post">
+      <h3>POST</h3>
+      <p>
+        <pre>/api/queens/</pre> Adds a new queen with the information specified in the
+        request body.
+      </p>
+    </div>
+    <div class="patch">
+      <h3>PATCH</h3>
+      <p>
+        <pre>/api/queens/:name</pre> Updates the information of the selected queen. Note
+        that names are case-sensitive, and you must indicate the queen's full
+        name.
+      </p>
+    </div>
+    <div class="delete">
+      <h3>DELETE</h3>
+      <p>
+        <pre>/api/queens/:name</pre> Deletes the selected queen. Note that names are
+        case-sensitive, and you must indicate the queen's full name.
+      </p>
+    </div>
+    </div>
+    <!-- <h3>
       API Page In Progress
-    </h1>
+    </h3>
     <h2>
       <font color="pink">Insert Drag Race catch phrases here.</font>
     </h2>
@@ -24,6 +138,28 @@
     />
     <h3>
       Now... Sashay away.
-    </h3>
+    </h3> -->
   </body>
+  <div class="endpoints">
+      <h2>✨ABOUT THE DATA ✨</h2>
+      <ul>
+          <li>A lot of the data comes from the <a href="https://docs.google.com/spreadsheets/d/1Sotvl3o7J_ckKUg5sRiZTqNQn3hPqhepBSeOpMTK15Q/edit#gid=1613421713">RuPaul-Predict-A-Looza Spreadsheet</a>.</li>
+        <li>The data in this API does not include data from All Stars seasons.</li> 
+    <li>Queens who have appeared in multiple seasons (Shangela Laquifa Wadley, Cynthia Lee Fontaine, 
+            Eureka, and Vanessa Vanjie Mateo) are included twice, with a different object 
+            for each season. (So Season 2 Shangela is treated as a separate queen from Season 3 Shangela.)</li>
+        </ul>
+        <!-- <p>Queen data is returned in the following format:
+            {
+                "id": 113,
+                "name": "Nina Bo'nina Brown",
+                "season": 9,
+                "ranking": 6,
+                "congeniality": false,
+                "snatch_game": false,
+                "first_win": true,
+                "entrance": 12,
+                "wins": 1
+              }</p> -->
+  </div>
 </html>

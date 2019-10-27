@@ -1,6 +1,6 @@
 This was created during my time as a student at Code Chrysalis.
 
-# Title TBD
+# RPDR SlayPI
 
 ## Table of Contents
 
@@ -12,7 +12,7 @@ This was created during my time as a student at Code Chrysalis.
 
 ## Introduction
 
-This is a RESTful API with data for all 140 queens who have competed on RuPaul's Drag Race. Created by @followdiallo.
+This is a RESTful API with data for all 140 queens who have competed on RuPaul's Drag Race. Created by [@followdiallo](https://github.com/followdiallo).
 
 ## Setup: Getting Started
 
@@ -64,7 +64,7 @@ Queen data is returned in the following format:
 
 **season**: The season in which the queen competed.
 
-**ranking**: The queen's placement in her season. Queens with a ranking of 1 won their season.
+**ranking**: The queen's placement in her season. Queens with a ranking of 1 won their season. 👑
 
 **congeniality**: Boolean indicating whether or not the queen won Miss Congeniality.
 
@@ -90,9 +90,9 @@ Queen data is returned in the following format:
 
 `/api/queens/wins/:win`: Returns all queens who won at least `:win` maxi challenges. [(Example)](http://localhost:3000/api/wins/3)
 
-`/api/winners`: Returns all winners of RuPaul's Drag Race. [(Example)](http://localhost:3000/api/winners)
+`/api/winners`: Returns all winners 👑 of RuPaul's Drag Race. [(Example)](http://localhost:3000/api/winners)
 
-`/api/winners/:season`: Returns the winner for the specified season. [(Example)](http://localhost:3000/api/winners/7)
+`/api/winners/:season`: Returns the winner 👑 for the specified season. [(Example)](http://localhost:3000/api/winners/7)
 
 `/api/congeniality`: Returns all Miss Congenialities. [(Example)](http://localhost:3000/api/congeniality)
 

@@ -1,5 +1,112 @@
+a[title]:hover::after {
+  background-color: white;
+  color: #e60d53;
+  content: attr(title);
+  font-family: "HelveticaNeue-CondensedBold";
+  position: absolute;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+a:visited {
+  color: #fbda01;
+}
+
 body {
   background-color: #ec8fe2;
-  color: #87318d;
+  color: #632568;
   font-family: "HelveticaNeue-CondensedBold";
+  display: inline-block;
+  margin-left: 4%;
+  margin-right: 2%;
+}
+
+div {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+pre {
+  background-color: white;
+  color: #e60d53;
+  font-family: "HelveticaNeue-CondensedBold";
+  width: min-content;
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 3px;
+}
+
+/* .buttons {
+  flex-direction: row;
+} */
+
+#header {
+  display: flex;
+  align-content: center;
+  color: white;
+  background-color: #e60d53;
+  width: 100%;
+  height: 50%;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  margin: 0px;
+}
+
+#header:link {
+  color: white;
+  text-decoration: none;
+}
+
+#header:link:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.buttons {
+  flex-grow: 1;
+  /* align-content: center; */
+  display: flex;
+  justify-self: flex-end;
+  justify-content: space-around;
+  font-size: 25px;
+  float: right;
+}
+
+.headline {
+  font-size: 45px;
+}
+
+.introduction {
+  font-size: 20px;
+}
+
+h2 {
+  color: #e60d53;
+  font-size: 30px;
+  margin: 0;
+}
+
+h3 {
+  font-size: 25px;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #fbda01;
 }
