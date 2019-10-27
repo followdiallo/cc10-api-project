@@ -123,3 +123,4 @@ Queen data is returned in the following format:
 - Making name search case-insensitive
 - Combining data for queens who have appeared in multiple seasons
 - LSFYL data
+- Code refactoring (this project was created in <48 hours)

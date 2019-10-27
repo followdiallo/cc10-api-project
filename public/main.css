@@ -47,10 +47,6 @@ pre {
   border-radius: 3px;
 }
 
-/* .buttons {
-  flex-direction: row;
-} */
-
 #header {
   display: flex;
   align-content: center;
@@ -62,6 +58,11 @@ pre {
   position: sticky;
   top: 0;
   margin: 0px;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-bottom: 7px;
+  margin-left: -5%;
+  width: 105%;
 }
 
 #header:link {
@@ -76,7 +77,6 @@ pre {
 
 .buttons {
   flex-grow: 1;
-  /* align-content: center; */
   display: flex;
   justify-self: flex-end;
   justify-content: space-around;
@@ -105,6 +105,10 @@ h3 {
 
 html {
   scroll-behavior: smooth;
+}
+
+a:link {
+  color: #fbda01;
 }
 
 ::selection {

@@ -2,16 +2,6 @@ const db = require("./config").db;
 const knex = require("knex")(db);
 const express = require("express");
 
-// function createResponse(...args) {
-//   if (args) {
-//     return knex
-//       .select()
-//       .table("queens")
-//       .where(...args);
-//   }
-//   return knex.select().table("queens");
-// }
-
 const setupExpressServer = () => {
   const app = express();
 
@@ -22,11 +12,6 @@ const setupExpressServer = () => {
   });
 
   app.get("/api/queens", async (req, res) => {
-    // const response = knex
-    //   .select()
-    //   .table("queens")
-    //   .then();
-    // res.send(response);
     const func = () => {
       return knex.select().table("queens");
     };
