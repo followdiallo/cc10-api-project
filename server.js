@@ -185,6 +185,66 @@ const setupExpressServer = () => {
     res.send(response);
   });
 
+  app.use(express.json());
+  app.post("/api/queens", async (req, res) => {
+    const newQueen = req.body;
+    console.log(newQueen);
+    const {
+      name,
+      season,
+      ranking,
+      congeniality,
+      snatch_game,
+      first_win,
+      entrance,
+      wins
+    } = newQueen;
+    const func = () => {
+      return knex("queens").insert({
+        name: name,
+        season: season,
+        ranking: ranking,
+        congeniality: congeniality,
+        snatch_game: snatch_game,
+        first_win: first_win,
+        entrance: entrance,
+        wins: wins
+      });
+    };
+    await func();
+    res.send(`Welcome to the stage, ${name}!`);
+  });
+
+  app.patch("/api/queens/:name", async (req, res) => {
+    const { name } = req.params;
+    const updateReq = req.body;
+    const updateRes = {};
+    for (const [key, value] of Object.entries(updateReq)) {
+      updateRes[key] = value;
+    }
+    const func = () => {
+      return knex("queens")
+        .where("name", name)
+        .update(updateRes);
+    };
+    await func();
+    res.send(
+      `${name}...\ 
+      Condragulations, your information has been updated.`
+    );
+  });
+
+  app.delete("/api/queens/:name", async (req, res) => {
+    const { name } = req.params;
+    const func = () => {
+      return knex("queens")
+        .where("name", name)
+        .del();
+    };
+    await func();
+    res.send(`${name}... Sashay away...`);
+  });
+
   return app;
 };
 

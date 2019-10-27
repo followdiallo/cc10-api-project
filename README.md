@@ -4,15 +4,15 @@ This was created during my time as a student at Code Chrysalis.
 
 ## Table of Contents
 
-1. Introduction
-2. Setup: Getting Started
-3. About the Data
-4. Endpoints
-5. Features to Add
+1. [Introduction](#introduction)
+2. [Setup: Getting Started](#setup-getting-started)
+3. [About the Data](#about-the-data)
+4. [Endpoints](#endpoints)
+5. [Features to Add](#features-to-add)
 
 ## Introduction
 
-This is a RESTful API with data for all 140 queens who have competed on RuPaul's Drag Race.
+This is a RESTful API with data for all 140 queens who have competed on RuPaul's Drag Race. Created by @followdiallo.
 
 ## Setup: Getting Started
 
@@ -58,7 +58,7 @@ Queen data is returned in the following format:
   }
 ```
 
-**id**: Unique id for each queen. Based on Werk Room by season (starting with Shannel as 1, and Soju as 144).
+**id**: Unique id for each queen. Based on Werk Room entrance by season (starting with Shannel as 1, and Soju as 144).
 
 **name**: The queen's name.
 
@@ -108,9 +108,15 @@ Queen data is returned in the following format:
 
 ### POST
 
+`/api/queens/`: Adds a new queen with the information specified in the request body.
+
 ### PATCH
 
+`/api/queens/:name`: Updates the information of the selected queen. _Note that names are case-sensitive, and you must indicate the queen's full name._
+
 ### DELETE
+
+`/api/queens/:name`: Deletes the selected queen. _Note that names are case-sensitive, and you must indicate the queen's full name._
 
 ## Features to Add
 
