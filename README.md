@@ -14,6 +14,8 @@ This was created during my time as a student at Code Chrysalis.
 
 This is a RESTful API with data for all 140 queens who have competed on RuPaul's Drag Race. Created by [@followdiallo](https://github.com/followdiallo).
 
+_We're all born naked and the REST is drag._
+
 ## Setup: Getting Started
 
 Install dependencies:
